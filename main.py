@@ -16,9 +16,10 @@ while True:
     height=40
     width=80
     endpoint=(30+width,30+height)
-    cv2.rectangle(frame,startpoint,endpoint,thickness=5,color="blue")
+    for (startpoint,endpoint,width,height) in face:
+       cv2.rectangle(frame,startpoint,endpoint,(255,0,0),2)
     cv2.imshow("face detection!!,press 'q' to quit",frame)
-    if cv2.waitKey(1) and 0xFF==ord('q'):
+    if cv2.waitKey(1) & 0xFF==ord('q'):
         break
 cap.release()
 cv2.destroyAllWindows()
